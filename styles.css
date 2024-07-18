@@ -1,0 +1,92 @@
+:root {
+    --munus-color: hotpink;
+    --niktari-color: mediumslateblue;
+}
+
+* {
+    font-family: "Outfit", sans-serif;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+@media screen and (width <=768px) {
+    .container {
+        flex-direction: column;
+    }
+}
+
+.left-side,
+.right-side {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    font-size: clamp(25px, 2vw, 2vw);
+    border: 0;
+}
+
+.left-side {
+    &:hover {
+        background-color: var(--munus-color);
+        color: white;
+        cursor: pointer;
+    }
+
+    &:hover~#followText::before {
+        content: 'Niktari';
+    }
+}
+
+.right-side {
+
+    &:hover {
+        background-color: var(--niktari-color);
+        color: white;
+        cursor: pointer;
+    }
+
+    &:hover~#followText::before {
+        content: 'Munus';
+    }
+}
+
+#followText {
+    position: absolute;
+    color: white;
+    font-size: 20vw;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    font-weight: 900;
+    letter-spacing: -1vw;
+    font-optical-sizing: auto;
+    mix-blend-mode: difference;
+
+    &::before {
+        content: 'hello';
+    }
+}
+
+.hidden {
+    opacity: 0;
+}

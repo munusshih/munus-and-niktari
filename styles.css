@@ -16,7 +16,7 @@ html {
     overflow: hidden;
 }
 
-a {
+.link {
     text-decoration: none;
     color: inherit;
 }

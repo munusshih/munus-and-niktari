@@ -20,9 +20,9 @@ const setRandomColors = () => {
   root.style.setProperty("--niktari-color", getRandomColor());
 };
 
-const buttons = document.querySelectorAll("button");
-buttons.forEach(b => {
-  b.onmouseenter = () => {
+const links = document.querySelectorAll(".link");
+links.forEach(l => {
+  l.onmouseenter = () => {
     setRandomColors();
   };
 });

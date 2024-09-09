@@ -84,7 +84,7 @@ html {
     mix-blend-mode: difference;
 
     &::before {
-        content: 'hello';
+        content: '';
     }
 }
 

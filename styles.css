@@ -151,6 +151,11 @@ nav {
         color: white;
         mix-blend-mode: difference;
     }
+
+    a{
+        color: white;
+        text-decoration: none;
+    }
 }
 
 .display-none {
@@ -166,7 +171,7 @@ nav {
 .underline {
     text-decoration: underline;
     text-decoration-thickness: 2px;
-    text-underline-offset: 7px;
+    text-underline-offset: 8px;
 }
 
 @media screen and (width <=768px) {

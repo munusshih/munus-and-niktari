@@ -74,7 +74,7 @@ nav {
 }
 
 .left-side {
-    &:hover {
+    &:hover, &:focus-visible {
         background-color: var(--munus-color);
         color: white;
         cursor: pointer;
@@ -86,7 +86,7 @@ nav {
 }
 
 .right-side {
-    &:hover {
+    &:hover, &:focus-visible {
         background-color: var(--niktari-color);
         color: white;
         cursor: pointer;

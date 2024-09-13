@@ -30,6 +30,8 @@ links.forEach(l => {
 
 const aboutLink = document.getElementById('about-link'),
       aboutSection = document.getElementById('about');
+      body = document.body,
+      html = document.documentElement;
 
 aboutLink.onclick = (e) => {
   e.preventDefault();
@@ -40,4 +42,14 @@ aboutLink.onclick = (e) => {
 
   aboutLink.textContent = isActive ? 'Close' : 'About';
   history.pushState(null, null, isActive ? '#about' : ' ');
+
+  if (isActive) {
+    body.style.overflow = 'auto';
+    html.style.overflow = 'auto';
+    html.style.background = 'var(--munus-color)';
+  } else {
+    body.style.overflow = 'hidden';
+    html.style.overflow = 'hidden';
+    html.style.background = 'none';
+  }
 };

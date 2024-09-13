@@ -18,6 +18,7 @@ const setRandomColors = () => {
   const root = document.documentElement;
   root.style.setProperty("--munus-color", getRandomColor());
   root.style.setProperty("--niktari-color", getRandomColor());
+  root.style.setProperty("--about-color", getRandomColor());
 };
 
 const links = document.querySelectorAll(".link");
@@ -26,3 +27,17 @@ links.forEach(l => {
     setRandomColors();
   };
 });
+
+const aboutLink = document.getElementById('about-link'),
+      aboutSection = document.getElementById('about');
+
+aboutLink.onclick = (e) => {
+  e.preventDefault();
+  setRandomColors();
+
+  const isActive = aboutSection.classList.toggle('active');
+  aboutSection.classList.toggle('display-none', !isActive);
+
+  aboutLink.textContent = isActive ? 'Close' : 'About';
+  history.pushState(null, null, isActive ? '#about' : ' ');
+};

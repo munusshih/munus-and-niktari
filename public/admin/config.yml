@@ -1,5 +1,5 @@
 backend:
-  name: github
+  name: git-gateway
   branch: dev-astro # Branch to update (optional; defaults to master)
 local_backend: true
 media_folder: "src/assets/images" # Location where files will be stored in the repo

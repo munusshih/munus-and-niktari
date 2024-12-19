@@ -44,9 +44,10 @@ import "../styles/styles.css";
       rel="stylesheet"
     />
     <script>
-        import "../scripts/script.js"
+      import "../scripts/script.js";
     </script>
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"
+    ></script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6R7SN65QPD"
     ></script>
@@ -177,5 +178,16 @@ import "../styles/styles.css";
       >
       <div id="followText"></div>
     </main>
+    <script is:inline>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", (user) => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
   </body>
 </html>

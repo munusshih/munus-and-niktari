@@ -1,56 +1,134 @@
 ---
-import resources from "../data/resources.json";
+import data from "../data/resources.yml";
 import "../styles/resources.css";
-const categories = new Set();
-const tags = new Set();
 
-// Populate categories and tags sets
-resources.forEach((resource) => {
-  resource.categories.forEach((category) => categories.add(category));
-  resource.tags.forEach((tag) => tags.add(tag));
+// Access the "resources" object from the YAML data
+const resources = data.resources;
+
+// Helper to split and normalize strings
+const splitAndTrim = (str) =>
+  str ? str.split(",").map((item) => item.trim()) : [];
+
+// Create a mapping of categories to their respective resources
+const categoryMap = new Map();
+
+// Flatten the resources object into an array of resources
+const allResources = Object.values(resources).flat();
+
+// Loop through the categories and their resources
+Object.entries(resources).forEach(([category, categoryResources]) => {
+  categoryMap.set(category, categoryResources);
 });
 ---
 
 <html>
   <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles/resources.css" />
     <title>Resources</title>
   </head>
   <body>
-    <h1>Resource Website</h1>
-
-    <div>
-      <h2>Categories</h2>
+    <nav class="side-nav">
+      <h1 class="underline">Resources</h1>
       <ul>
-        {Array.from(categories).map((category) => <li>{category}</li>)}
-      </ul>
-    </div>
-
-    <div>
-      <h2>Tags</h2>
-      <ul>
-        {Array.from(tags).map((tag) => <li>{tag}</li>)}
-      </ul>
-    </div>
-
-    <h2>Resources</h2>
-    <div class="resources">
-      {
-        resources.map((resource) => (
-          <div class="resource">
-            <h3>
-              <a href={resource.url} target="_blank">
-                {resource.title}
+        {
+          Array.from(categoryMap.keys()).map((category) => (
+            <li>
+              <a href={`#${category.replace(/\s+/g, "-").toLowerCase()}`}>
+                {category}
               </a>
-            </h3>
-            <img
-              src={resource.screenshot || "/images/default-screenshot.png"}
-              alt={resource.title}
-           />
-            <p>Categories: {resource.categories.join(", ")}</p>
-            <p>Tags: {resource.tags.join(", ")}</p>
-          </div>
+            </li>
+          ))
+        }
+      </ul>
+      <section id="filters">
+        <h2>Filter</h2>
+        <div id="tag-filters">
+          {
+            // Flatten all resources and extract unique tags
+            Array.from(
+              new Set(allResources.flatMap((res) => splitAndTrim(res.tags)))
+            ).map((tag) => (
+              <div class="checkbox">
+                <input
+                  id={`tag-filter-${tag}`}
+                  class="tag-filter"
+                  type="checkbox"
+                  value={tag}
+                />
+                <label for={`tag-filter-${tag}`}>{tag}</label>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+    </nav>
+
+    <main>
+      {
+        Array.from(categoryMap.entries()).map(([category, resources]) => (
+          <section
+            id={category.replace(/\s+/g, "-").toLowerCase()}
+            class="category"
+          >
+            <h2 class="underline">{category}</h2>
+            <div class="resources">
+              {resources.map((resource) => (
+                <div
+                  class="resource"
+                  data-tags={splitAndTrim(resource.tags).join(",")}
+                >
+                  <h3 class="resource__title">
+                    <a href={resource.url} target="_blank">
+                      {resource.title}
+                    </a>
+                  </h3>
+                  <img
+                    src={
+                      resource.screenshot || "/images/default-screenshot.png"
+                    }
+                    alt={resource.title}
+                  />
+                  <ul class="tags">
+                    {splitAndTrim(resource.tags).map((tag) => (
+                      <li>{tag}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </section>
         ))
       }
-    </div>
+    </main>
+
+    <script>
+      const filters = document.querySelectorAll(".tag-filter");
+      const resources = document.querySelectorAll(".resource");
+
+      // Filter resources based on selected tags
+      filters.forEach((filter) => {
+        filter.addEventListener("change", () => {
+          const selectedTags = Array.from(filters)
+            .filter((input) => input.checked)
+            .map((input) => input.value);
+
+          resources.forEach((resource) => {
+            const resourceTags = resource.dataset.tags.split(",");
+            const isVisible = selectedTags.every((tag) =>
+              resourceTags.includes(tag)
+            );
+
+            resource.style.display =
+              isVisible || selectedTags.length === 0 ? "block" : "none";
+          });
+        });
+      });
+    </script>
   </body>
 </html>

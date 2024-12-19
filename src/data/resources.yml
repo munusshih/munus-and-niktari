@@ -1,14 +1,18 @@
 resources:
-  - title: Astro Documentation
-    url: https://astro.build
-    categories: Documentation
-    tags: Astro, Documentation
-    screenshot: /images/screenshots/astro-documentation.png
-  - title: CSS Tricks
-    url: https://css-tricks.com
-    categories: CSS, Web Design
-    tags: CSS
-    screenshot: /images/screenshots/css-tricks.png
-  - title: nikki website
-    url: https://niktari.com/
-    screenshot: /images/screenshots/nikki-website.png
+  Web Development:
+    - title: Astro Documentation
+      url: https://astro.build
+      tags: Astro, Documentation
+      screenshot: /images/screenshots/astro-documentation.png
+    - title: CSS Tricks
+      url: https://css-tricks.com
+      tags: CSS
+      screenshot: /images/screenshots/css-tricks.png
+  Design:
+    - title: nikki website
+      url: https://niktari.com/
+      screenshot: /images/screenshots/nikki-website.png
+    - url: https://www.instagram.com/share/BBUWBrep5J
+      title: 2x4 Generative pattern
+      tags: generative design
+      screenshot: /images/screenshots/2x4-generative-pattern.png

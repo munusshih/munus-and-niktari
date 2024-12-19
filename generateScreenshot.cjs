@@ -22,13 +22,13 @@ try {
   return;
 }
 
-// Check if resources is an array within the data object
-if (!data.resources || !Array.isArray(data.resources)) {
-  console.error('Error: resources is not an array');
+// Check if resources exist and are correctly structured
+if (!data || !data.resources) {
+  console.error('Error: resources is not present in YAML file');
   return;
 }
 
-const resources = data.resources;
+const resourcesByCategory = data.resources;
 
 // Launch Puppeteer to capture screenshots
 async function captureScreenshot(url, filename) {
@@ -58,21 +58,26 @@ async function captureScreenshot(url, filename) {
 
 // Process each resource, generate screenshot if necessary
 async function generateScreenshots() {
-  for (const resource of resources) {
-    // Skip resources that already have a screenshot
-    if (resource.screenshot) continue;
+  for (const category in resourcesByCategory) {
+    const categoryResources = resourcesByCategory[category];
 
-    // Generate a screenshot filename based on the title (slugified)
-    const screenshotFilename = `${resource.title.replace(/\s+/g, '-').toLowerCase()}.png`;
-    const screenshotPath = path.join(screenshotsDir, screenshotFilename);
+    // Process each resource in the category
+    for (const resource of categoryResources) {
+      // Skip resources that already have a screenshot
+      if (resource.screenshot) continue;
 
-    // Capture the screenshot only if it doesn't already exist
-    if (!fs.existsSync(screenshotPath)) {
-      console.log(`Capturing screenshot for ${resource.title}`);
-      await captureScreenshot(resource.url, screenshotPath);
+      // Generate a screenshot filename based on the title (slugified)
+      const screenshotFilename = `${resource.title.replace(/\s+/g, '-').toLowerCase()}.png`;
+      const screenshotPath = path.join(screenshotsDir, screenshotFilename);
 
-      // Update the resource data with the screenshot filename
-      resource.screenshot = `/images/screenshots/${screenshotFilename}`;
+      // Capture the screenshot only if it doesn't already exist
+      if (!fs.existsSync(screenshotPath)) {
+        console.log(`Capturing screenshot for ${resource.title}`);
+        await captureScreenshot(resource.url, screenshotPath);
+
+        // Update the resource data with the screenshot filename
+        resource.screenshot = `/images/screenshots/${screenshotFilename}`;
+      }
     }
   }
 

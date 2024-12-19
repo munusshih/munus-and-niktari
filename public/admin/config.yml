@@ -13,32 +13,89 @@ collections:
         name: "resources"
         file: "src/data/resources.yml"
         fields:
-          - label: resources
-            name: resources
-            widget: "list"
-            collapsed: true
+          - label: "Resources"
+            name: "resources"
+            widget: "object"
+            collapsed: false
+            create: true
             fields:
-              - name: "title"
-                label: "Title"
-                widget: "string"
+              - name: "Web Development"
+                label: "Web Development"
+                widget: "list"
+                fields:
+                  - name: "title"
+                    label: "Title"
+                    widget: "string"
+                  - name: "url"
+                    label: "URL"
+                    widget: "string"
+                  - name: "tags"
+                    label: "Tags"
+                    widget: "string"
+                    required: false
+                    hint: "Enter tags separated by commas (e.g., 'Astro, Documentation')"
+                  - name: "screenshot"
+                    label: "Screenshot"
+                    widget: "image"
+                    required: false
 
-              - name: "url"
-                label: "URL"
-                widget: "string"
+              - name: "Design"
+                label: "Design"
+                widget: "list"
+                fields:
+                  - name: "title"
+                    label: "Title"
+                    widget: "string"
+                  - name: "url"
+                    label: "URL"
+                    widget: "string"
+                  - name: "tags"
+                    label: "Tags"
+                    widget: "string"
+                    required: false
+                    hint: "Enter tags separated by commas (e.g., 'Design, Portfolio')"
+                  - name: "screenshot"
+                    label: "Screenshot"
+                    widget: "image"
+                    required: false
 
-              - name: "categories"
-                label: "Categories"
-                widget: "string"
-                required: false
-                hint: "Enter categories separated by commas (e.g., 'Docs, Web Development')"
+              # Add more categories as needed
+              - name: "Tutorials"
+                label: "Tutorials"
+                widget: "list"
+                fields:
+                  - name: "title"
+                    label: "Title"
+                    widget: "string"
+                  - name: "url"
+                    label: "URL"
+                    widget: "string"
+                  - name: "tags"
+                    label: "Tags"
+                    widget: "string"
+                    required: false
+                    hint: "Enter tags separated by commas (e.g., 'HTML, CSS')"
+                  - name: "screenshot"
+                    label: "Screenshot"
+                    widget: "image"
+                    required: false
 
-              - name: "tags"
-                label: "Tags"
-                widget: "string"
-                required: false
-                hint: "Enter tags separated by commas (e.g., 'Astro, Documentation')"
-
-              - name: "screenshot"
-                label: "Screenshot"
-                widget: "image"
-                required: false
+              - name: "Tools"
+                label: "Tools"
+                widget: "list"
+                fields:
+                  - name: "title"
+                    label: "Title"
+                    widget: "string"
+                  - name: "url"
+                    label: "URL"
+                    widget: "string"
+                  - name: "tags"
+                    label: "Tags"
+                    widget: "string"
+                    required: false
+                    hint: "Enter tags separated by commas (e.g., 'Productivity')"
+                  - name: "screenshot"
+                    label: "Screenshot"
+                    widget: "image"
+                    required: false

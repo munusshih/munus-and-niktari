@@ -1,17 +1,153 @@
 /* src/styles/styles.css */
-.resources {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
+* {
+    font-family: "Outfit", sans-serif;
+    font-weight: 500;
+    font-size: 25px;
+    margin: 0;
 }
 
-.resource {
-    border: 1px solid #ccc;
-    padding: 10px;
-    text-align: center;
+nav {
+    position: fixed;
+    left: 1rem;
+    top: 1rem;
+    width: 300px;
+    height: auto;
+
+
+    h1 {
+        margin-bottom: 1rem;
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+main {
+    padding-left: 300px;
+}
+
+.underline {
+    text-decoration: underline;
+    text-underline-offset: 0.2rem;
+}
+
+h1 {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    font-weight: 500;
+    color: black;
+}
+
+.resources {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0rem;
+}
+
+.category {
+    padding: 1rem;
+}
+
+.category:nth-of-type(1) {
+    background-color: #ff9999;
+    /* Light red */
+}
+
+.category:nth-of-type(2) {
+    background-color: #99ccff;
+    /* Light blue */
+}
+
+.category:nth-of-type(3) {
+    background-color: #99ff99;
+    /* Light green */
+}
+
+.category:nth-of-type(4) {
+    background-color: #ffff99;
+    /* Light yellow */
+}
+
+.resource__title {
+    margin: .5rem 0rem;
+    font-size: 1rem;
 }
 
 .resource img {
     max-width: 100%;
+    margin-bottom: .5rem;
     height: auto;
+}
+
+.tags {
+    display: flex;
+    gap: .25rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+        width: auto;
+        padding: 0.1rem 0.5rem;
+        background-color: white;
+        border-radius: 0.5rem;
+    }
+}
+
+#filters {
+    margin: 1rem 0rem;
+}
+
+input[type="checkbox"] {
+    /* Add if not using autoprefixer */
+    -webkit-appearance: none;
+    appearance: none;
+    /* For iOS < 15 to remove gradient background */
+    background-color: #fff;
+    /* Not removed via appearance */
+}
+
+.checkbox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    margin-left: 0.1rem;
+    cursor: pointer;
+}
+
+/* The checkbox */
+.checkbox>input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+
+    box-shadow: 0 0 0 2px black;
+    border: 3px solid white;
+}
+
+.checkbox>input:checked {
+    background-color: black;
 }

@@ -1,8 +1,6 @@
 backend:
   name: github
-  branch: main # Branch to update (optional; defaults to master)
-  repo: munusshih/munus-and-niktari
-  base_url: https://munusandniktari.com/
+  branch: dev-astro # Branch to update (optional; defaults to master)
 local_backend: true
 media_folder: "src/assets/images" # Location where files will be stored in the repo
 public_folder: "public/images" # The src attribute for uploaded media

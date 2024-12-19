@@ -5,7 +5,7 @@
   "scripts": {
     "generate-screenshots": "node ./generateScreenshot.cjs",
     "dev": "npm run generate-screenshots && astro dev",
-    "build": "astro build",
+    "build": "npm run generate-screenshots && astro build",
     "preview": "astro preview",
     "astro": "astro"
   },

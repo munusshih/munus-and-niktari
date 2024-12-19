@@ -1,0 +1,46 @@
+backend:
+  name: github
+  branch: main # Branch to update (optional; defaults to master)
+  repo: munusshih/munus-and-niktari
+  base_url: https://munusandniktari.com/
+local_backend: true
+media_folder: "src/assets/images" # Location where files will be stored in the repo
+public_folder: "public/images" # The src attribute for uploaded media
+
+collections:
+  - label: "Resources"
+    name: "resources"
+    files:
+      - label: "Resources"
+        name: "resources"
+        file: "src/data/resources.yml"
+        fields:
+          - label: resources
+            name: resources
+            widget: "list"
+            collapsed: true
+            fields:
+              - name: "title"
+                label: "Title"
+                widget: "string"
+
+              - name: "url"
+                label: "URL"
+                widget: "string"
+
+              - name: "categories"
+                label: "Categories"
+                widget: "string"
+                required: false
+                hint: "Enter categories separated by commas (e.g., 'Docs, Web Development')"
+
+              - name: "tags"
+                label: "Tags"
+                widget: "string"
+                required: false
+                hint: "Enter tags separated by commas (e.g., 'Astro, Documentation')"
+
+              - name: "screenshot"
+                label: "Screenshot"
+                widget: "image"
+                required: false

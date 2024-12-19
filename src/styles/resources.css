@@ -1,0 +1,17 @@
+/* src/styles/styles.css */
+.resources {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.resource {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+.resource img {
+    max-width: 100%;
+    height: auto;
+}

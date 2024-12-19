@@ -1,0 +1,14 @@
+resources:
+  - title: Astro Documentation
+    url: https://astro.build
+    categories: Documentation
+    tags: Astro, Documentation
+    screenshot: /images/screenshots/astro-documentation.png
+  - title: CSS Tricks
+    url: https://css-tricks.com
+    categories: CSS, Web Design
+    tags: CSS
+    screenshot: /images/screenshots/css-tricks.png
+  - title: nikki website
+    url: https://niktari.com/
+    screenshot: /images/screenshots/nikki-website.png

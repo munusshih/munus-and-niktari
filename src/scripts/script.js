@@ -22,34 +22,34 @@ const setRandomColors = () => {
 };
 
 const links = document.querySelectorAll(".link");
-links.forEach(l => {
+links.forEach((l) => {
   l.onmouseenter = () => {
     setRandomColors();
   };
 });
 
-const aboutLink = document.getElementById('about-link'),
-      aboutSection = document.getElementById('about');
-      body = document.body,
-      html = document.documentElement;
+const aboutLink = document.getElementById("about-link"),
+  aboutSection = document.getElementById("about");
+const body = document.body,
+  html = document.documentElement;
 
 aboutLink.onclick = (e) => {
   e.preventDefault();
   setRandomColors();
 
-  const isActive = aboutSection.classList.toggle('active');
-  aboutSection.classList.toggle('display-none', !isActive);
+  const isActive = aboutSection.classList.toggle("active");
+  aboutSection.classList.toggle("display-none", !isActive);
 
-  aboutLink.textContent = isActive ? 'Close' : 'About';
-  history.pushState(null, null, isActive ? '#about' : ' ');
+  aboutLink.textContent = isActive ? "Close" : "About";
+  history.pushState(null, null, isActive ? "#about" : " ");
 
   if (isActive) {
-    body.style.overflow = 'auto';
-    html.style.overflow = 'auto';
-    html.style.background = 'var(--munus-color)';
+    body.style.overflow = "auto";
+    html.style.overflow = "auto";
+    html.style.background = "var(--munus-color)";
   } else {
-    body.style.overflow = 'hidden';
-    html.style.overflow = 'hidden';
-    html.style.background = 'none';
+    body.style.overflow = "hidden";
+    html.style.overflow = "hidden";
+    html.style.background = "none";
   }
 };

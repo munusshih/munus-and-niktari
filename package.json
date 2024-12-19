@@ -1,0 +1,17 @@
+{
+  "name": "shaggy-singularity",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "generate-screenshots": "node ./generateScreenshot.cjs",
+    "dev": "npm run generate-screenshots && astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^5.0.9",
+    "decap-cms-app": "^3.4.0",
+    "puppeteer": "^23.11.0"
+  }
+}

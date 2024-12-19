@@ -1,0 +1,56 @@
+---
+import resources from "../data/resources.json";
+import "../styles/resources.css";
+const categories = new Set();
+const tags = new Set();
+
+// Populate categories and tags sets
+resources.forEach((resource) => {
+  resource.categories.forEach((category) => categories.add(category));
+  resource.tags.forEach((tag) => tags.add(tag));
+});
+---
+
+<html>
+  <head>
+    <title>Resources</title>
+  </head>
+  <body>
+    <h1>Resource Website</h1>
+
+    <div>
+      <h2>Categories</h2>
+      <ul>
+        {Array.from(categories).map((category) => <li>{category}</li>)}
+      </ul>
+    </div>
+
+    <div>
+      <h2>Tags</h2>
+      <ul>
+        {Array.from(tags).map((tag) => <li>{tag}</li>)}
+      </ul>
+    </div>
+
+    <h2>Resources</h2>
+    <div class="resources">
+      {
+        resources.map((resource) => (
+          <div class="resource">
+            <h3>
+              <a href={resource.url} target="_blank">
+                {resource.title}
+              </a>
+            </h3>
+            <img
+              src={resource.screenshot || "/images/default-screenshot.png"}
+              alt={resource.title}
+           />
+            <p>Categories: {resource.categories.join(", ")}</p>
+            <p>Tags: {resource.tags.join(", ")}</p>
+          </div>
+        ))
+      }
+    </div>
+  </body>
+</html>

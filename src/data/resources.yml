@@ -16,3 +16,6 @@ resources:
       title: 2x4 Generative pattern
       tags: generative design
       screenshot: /images/screenshots/2x4-generative-pattern.png
+    - title: Hello
+      url: mycoolsite.com
+      tags: design, cool, cats

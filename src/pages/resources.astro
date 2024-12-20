@@ -61,7 +61,7 @@ Object.entries(resources).forEach(([category, categoryResources]) => {
                   type="checkbox"
                   value={tag}
                 />
-                <label for={`tag-filter-${tag}`}>{tag}</label>
+                <label for={`tag-filter-${tag}`}>{tag.toLowerCase().replace(/\b\w/g, char => char.toUpperCase())}</label>
               </div>
             ))
           }

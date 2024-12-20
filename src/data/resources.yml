@@ -19,3 +19,6 @@ resources:
     - title: Hello
       url: https://www.target.com
       tags: design, cool, cats
+    - title: Another one
+      url: https://pudding.cool/2020/12/lighting-cost
+      tags: data viz, design

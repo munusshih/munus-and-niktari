@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "generate-screenshots": "node ./generateScreenshot.cjs",
+    "generate-screenshots": "npx puppeteer browsers install && node ./generateScreenshot.cjs",
     "dev": "npm run generate-screenshots && astro dev",
     "build": "npm run generate-screenshots && astro build",
     "preview": "astro preview",

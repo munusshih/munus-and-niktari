@@ -17,5 +17,5 @@ resources:
       tags: generative design
       screenshot: /images/screenshots/2x4-generative-pattern.png
     - title: Hello
-      url: mycoolsite.com
+      url: https://www.target.com
       tags: design, cool, cats

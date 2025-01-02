@@ -22,3 +22,7 @@ resources:
     - title: Another one
       url: https://pudding.cool/2020/12/lighting-cost
       tags: data viz, design
+  Tools:
+    - url: https://layout.bradwoods.io/
+      title: CSS Layout Generator
+      tags: CSS

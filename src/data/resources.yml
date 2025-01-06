@@ -22,6 +22,9 @@ resources:
     - title: Another one
       url: https://pudding.cool/2020/12/lighting-cost
       tags: data viz, design
+    - url: https://www.linkedin.com/in/suzanne-sirunyan/
+      title: 100 Days Hover State
+      tags: CSS, Design
   Tools:
     - url: https://layout.bradwoods.io/
       title: CSS Layout Generator
